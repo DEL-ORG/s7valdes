@@ -1,7 +1,7 @@
 2.
  of robots. These robots can be either physical machines or virtual agents programmed to perform tasks autonomously or semi-autonomously. Robotics combines principles from computer science, mechanical engineering, electrical engineering, and other related fields. Here are some key aspects of robotics:
 
-Types of Robots: Robots can be categorized into various types based on their design, function, and applicati.. Some common types include industrial robots used in manufacturing, service robots for tasks like cleaning or assisting humans, medical robots for surgery or rehabilitation, autonomous vehicles for transportation, and research robots for scientific exploration.
+Types of Robots: Robots can be categoriious types based on their design, function, and applicati.. Some common types include industrial robots used in manufacturing, service robots for tasks like cleaning or assisting humans, medical robots for surgery or rehabilitation, autonomous vehicles for transportation, and research robots for scientific exploration.
 
 Components: Robots typically consist of mechanical components such as actuators, sensors, and manipulators for physical interaction with the environment. They also include electronic components like microcontrollers and processors for computation and control. Software plays a crucial role in programming robots to perform specific tasks and interact with their surroundings.
 nnnvnvnvperceive and interpret their environment. These sensors can include cameras, LiDAR, ultrasonic sensors, proximity sensors, gyroscopes, accelerometers, and more. Perception algorithms process sensor data to create a representation of the robot's surroundings, enabling it to make informed decisions and navigate effectively.
