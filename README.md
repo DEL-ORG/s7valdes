@@ -1,2 +1,2 @@
 # s7valdes
-used for learning 
+used for learning purposes 
