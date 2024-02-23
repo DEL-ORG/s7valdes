@@ -4,7 +4,13 @@ used for learning purposes
 ### yes im her
 ***hhgggjgjghjghchgg***
 
-*jhkgkgknk
-*hjjhjfjjhjjh
-*jhfgjfujfjgjfjg
-*hghfjgjfgjfjgjg
+* jhkgkgknk
+* hjjhjfjjhjjh
+* jhfgjfujfjgjfjg
+* hghfjgjfgjfjgjg
+
+
+- dgfghdfgdhb
+- jhfhsfyhhyfyy
+- fuifjfjdjfjfj
+- fjfdjfjdejgjeefjej
