@@ -1,9 +1,10 @@
 # s7valdes
 used for learning purposes 
 
-### yes im here
--fgghfhghg
--fbgjjjg
--ghgjjgng
--gnnjgjgjj
-*hgjkhkjgj
+### yes im her
+***hhgggjgjghjghchgg***
+
+*jhkgkgknk
+*hjjhjfjjhjjh
+*jhfgjfujfjgjfjg
+*hghfjgjfgjfjgjg
