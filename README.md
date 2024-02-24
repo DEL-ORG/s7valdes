@@ -15,9 +15,8 @@ used for learning purposes
 - fuifjfjdjfjfj
 - fjfdjfjdejgjeefje i j
 
- | name     |  age | occupation |
- |..........|......|............|
- | neba     | 25   |   fuck     |
- ................................
- | fru      | 30   |   tuma     |
- | leo      | 40   |   taximan  |
+| name     |  age | occupation |
+|..........|......|............|
+| neba     | 25   |   fuck     |
+| fru      | 30   |   tuma     |
+| leo      | 40   |   taximan  |
