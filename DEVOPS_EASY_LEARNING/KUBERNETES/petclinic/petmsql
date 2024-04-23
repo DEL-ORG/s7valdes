@@ -42,6 +42,4 @@ spec:
           value: petclinic
         - name: MYSQL_DATABASE
           value: petclinic
-        volumeMounts:
-        - name: mysql-config
-          mountPath: /etc/mysql/conf.d
+      

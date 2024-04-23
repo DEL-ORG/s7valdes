@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db-statefulset
+spec:
+  serviceName: db-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: db
+        image: devopseasylearning/tarzan-db:v0.0.1
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: my-secret-pw
+        volumeMounts:
+        - name: val1
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: val1
+        emptyDir: {}
+      restartPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3306
+      targetPort: 3306
+  selector:
+    app: db

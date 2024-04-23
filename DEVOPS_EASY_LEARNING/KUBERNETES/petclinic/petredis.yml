@@ -16,10 +16,6 @@ spec:
       containers:
       - name: redis
         image: redis:4.0.2
-        volumeMounts:
-        - name: redis-conf
-          mountPath: /etc/redis/redis.conf
-          subPath: redis.conf
         ports:
         - containerPort: 6379
  
