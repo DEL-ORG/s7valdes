@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tarzan-auth-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tarzan-auth
+  template:
+    metadata:
+      labels:
+        app: tarzan-auth
+    spec:
+      containers:
+      - name: tarzan-auth
+        image: devopseasylearning/tarzan-auth:v0.0.1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DB_HOST
+          value: "db"
+        - name: DB_PASSWORD
+          value: "my-secret-pw"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tarzan-auth-service
+spec:
+  selector:
+    app: tarzan-auth
+  ports:
+  - port: 8080
+    targetPort: 8080
+  type: NodePort
