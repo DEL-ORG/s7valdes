@@ -1,0 +1,76 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: valdes
+provisioner: dobs.csi.digitalocean.com
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: example-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: valdes
+  mountOptions:
+    - hard
+    - nfsvers=4.1
+  nfs:
+    path: /exported/path
+    server: nfs-server.example.com
+  
+
+
+ 
+
+   
+
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: valdes
+spec:
+  replicas: 1
+  serviceName: "postgresql"
+  selector:
+    matchLabels:
+      app: postgresql
+  template:
+    metadata:
+      labels:
+        app: postgresql
+    spec:
+      containers:
+      - name: postgresql
+        image: postgres:latest
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: postgres
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: postgres
+        volumeMounts:
+        - name: postgresql-data
+          mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+  - metadata:
+      name: postgresql-data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 10Gi

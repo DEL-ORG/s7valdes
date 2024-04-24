@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: articles-deployment
+  labels:
+    app: articles
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: articles
+  template:
+    metadata:
+      labels:
+        app: articles
+    spec:
+      containers:
+      - name: articles-container
+        image: versage/articles:v1
+ 
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: articles-service
+spec:
+  selector:
+    app: articles
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30003 

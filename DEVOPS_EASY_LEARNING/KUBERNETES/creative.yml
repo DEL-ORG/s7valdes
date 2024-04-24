@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: creative-deployment
+  labels:
+    app: creative
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: creative
+  template:
+    metadata:
+      labels:
+        app: creative
+    spec:
+      containers:
+      - name: creative-container
+        image: versage/creative:v1
+ 
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: creative-service
+spec:
+  selector:
+    app: creative
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30001 
