@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yelb-db
+  labels:
+    wide: odilia
+spec:
+  serviceName: yelb-db
+  replicas: 2
+  selector:
+    matchLabels:
+      app: yelb-db
+  template:
+    metadata:
+      labels:
+        app: yelb-db
+        wide: odilia
+    spec:
+      volumes:
+      - name: postgres-data  # Define a volume for persistent data
+        emptyDir: {}       # Configure the volume as an empty directory
+      containers:
+      - name: yelb-db
+        image: mreferre/yelb-db:0.6
+        ports:
+        - containerPort: 5432
+        volumeMounts:          # Mount the volume to the container
+        - name: postgres-data   # Name of the volume to mount
+          mountPath: /var/lib/postgresql/data  # Path within the container to mount the volume
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: yelb-db
+spec:
+  selector:
+    app: yelb-db
+    wide: odilia
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
+  type: ClusterIP

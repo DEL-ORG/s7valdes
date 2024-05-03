@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: yelb-ui
+  labels:
+    wide: odilia
 spec:
-  replicas: 1 
+  replicas: 2 
   selector:
     matchLabels:
       app: yelb-ui
@@ -11,10 +13,11 @@ spec:
     metadata:
       labels:
         app: yelb-ui
+        wide: odilia
     spec:
       containers:
       - name: yelb-ui
-        image: mreferre/yelb-ui:0.7
+        image: mreferre/yelb-ui:0.10
         ports:
         - containerPort: 80
 
@@ -28,8 +31,9 @@ spec:
   type: NodePort
   selector:
     app: yelb-ui
+    wide: odilia
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
-    nodePort: 30100 
+    nodePort: 30101 

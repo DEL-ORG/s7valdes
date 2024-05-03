@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: yelb-appserver
+  labels:
+    wide: odilia
 spec:
-  replicas: 1 
+  replicas: 2 
   selector:
     matchLabels:
       app: yelb-appserver
@@ -11,12 +13,13 @@ spec:
     metadata:
       labels:
         app: yelb-appserver
+        wide: odilia
     spec:
       containers:
       - name: yelb-appserver
-        image: mreferre/yelb-appserver:0.5
+        image: mreferre/yelb-appserver:0.7
         ports:
-        - containerPort: 3000
+        - containerPort: 4567
 
 
 ---
@@ -28,8 +31,9 @@ spec:
   type: ClusterIP
   selector:
     app: yelb-appserver
+    wide: odilia
   ports:
   - protocol: TCP
     name: server
-    port: 3000
-    targetPort: 3000
+    port: 4567
+    targetPort: 4567

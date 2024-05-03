@@ -19,53 +19,53 @@
     image: mreferre/yelb-db:0.5
     networks:
      - valdes
-    volumes:
-     - val:/var/lib/postgresql/data
+    # volumes:
+    #  - val:/var/lib/postgresql/data
   odilia-db-replication01:
     image: mreferre/yelb-db:0.5
     networks:
      - valdes
-    volumes:
-     - val1:/var/lib/postgresql/data
+    # volumes:
+    #  - val1:/var/lib/postgresql/data
   odilia-db-replication02:
     image: mreferre/yelb-db:0.5
     networks:
      - valdes
-    volumes:
-     - val2:/var/lib/postgresql/data
+    # volumes:
+    #  - val2:/var/lib/postgresql/data
   odilia-db-replication03:
     image: mreferre/yelb-db:0.5
     networks:
      - valdes
-    volumes:
-     - val3:/var/lib/postgresql/data
+    # volumes:
+    #  - val3:/var/lib/postgresql/data
   redis-server:
     image: redis:4.0.2
     networks:
      - valdes
-    volumes:
-     - redis:/etc/redis/redis.conf
-    command: redis-server /etc/redis/redis.conf
+    # volumes:
+    #  - redis:/etc/redis/redis.conf
+    # command: redis-server /etc/redis/redis.conf
   odilia-redis-01:
     image: redis:4.0.2
     networks:
      - valdes
-    volumes:
-     - redis1:/etc/redis/redis.conf
-    command: redis-server /etc/redis/redis.conf
+    # volumes:
+    #  - redis1:/etc/redis/redis.conf
+    # command: redis-server /etc/redis/redis.conf
   odilia-redis-02:
     image: redis:4.0.2
     networks:
      - valdes
-    volumes:
-     - redis2:/etc/redis/redis.conf
-    command: redis-server /etc/redis/redis.conf
+    # volumes:
+    #  - redis2:/etc/redis/redis.conf
+    # command: redis-server /etc/redis/redis.conf
   odilia-redis-sentinel01:
     image: redis:4.0.2
     networks:
      - valdes
-    volumes:
-     - val4:/etc/redis/sentinel.conf
+    # volumes:
+    #  - val4:/etc/redis/sentinel.conf
     command: redis-sentinel /etc/redis/sentinel.conf
     depends_on:
      - redis-server
@@ -75,8 +75,8 @@
     image: redis:4.0.2
     networks:
      - valdes
-    volumes:
-     - val5:/etc/redis/sentinel.conf
+    # volumes:
+    #  - val5:/etc/redis/sentinel.conf
     command: redis-sentinel /etc/redis/sentinel.conf
     depends_on:
      - redis-server
@@ -86,8 +86,8 @@
     image: redis:4.0.2
     networks:
      - valdes
-    volumes:
-     - val6:/etc/redis/sentinel.conf
+    # volumes:
+    #  - val6:/etc/redis/sentinel.conf
     command: redis-sentinel /etc/redis/sentinel.conf
     depends_on:
      - redis-server
@@ -102,7 +102,7 @@
 
 
 
- volumes:
+#  volumes:
   val6:
     driver: local
   val5:
